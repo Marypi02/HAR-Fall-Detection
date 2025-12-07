@@ -99,7 +99,7 @@ class Net(lit.LightningModule):
         conf_mat = self.conf_mat.compute().cpu().numpy()
 
         plt.figure(figsize=(10, 8))
-        sns.heatmap(conf_mat, annot=True, fmt='d', cmap='Blue',
+        sns.heatmap(conf_mat, annot=True, fmt='d', cmap='Blues',
                     xticklabels=self.class_names, yticklabels=self.class_names)
         plt.xlabel('Predicted')
         plt.ylabel('True')
