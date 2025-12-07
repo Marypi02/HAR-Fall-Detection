@@ -1,9 +1,0 @@
-- dataset.batch_size=128
-- dataset.val_split=0.10010257155630978
-- net.depth=1
-- net.optimizer._target_=torch.optim.Adam
-- net.optimizer.lr=0.0006912507831707598
-- net.rnn_block.hidden_size=128
-- net.rnn_block.num_layers=1
-- net.width=128
-- trainer.max_epochs=104

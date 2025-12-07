@@ -1,9 +1,0 @@
-- dataset.batch_size=192
-- dataset.val_split=0.25674758878628906
-- net.depth=1
-- net.optimizer._target_=torch.optim.SGD
-- net.optimizer.lr=0.0005844199061953702
-- net.rnn_block.hidden_size=128
-- net.rnn_block.num_layers=1
-- net.width=32
-- trainer.max_epochs=78

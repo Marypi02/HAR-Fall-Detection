@@ -133,7 +133,7 @@ def load_har(data_dir: Path, batch_size=32, val_split=0.2, num_workers=4):
     print(f"Subjects in Train: {train_subjects}")
     print(f"Subjects in Val: {val_subjects}")
 
-    # Boolean Mask che dice chi fa parte del Train chi della Val
+    # Boolean Mask che dice chi fa parte del Train e chi della Val
     train_ind = np.isin(all_subjects, train_subjects) 
     val_ind = np.isin(all_subjects, val_subjects)
 
