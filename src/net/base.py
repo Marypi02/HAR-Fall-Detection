@@ -92,7 +92,7 @@ class Net(lit.LightningModule):
         f1_score = self.test_f1score.compute()
 
         for i,name in enumerate(self.class_names):
-            self.log(f"test_precisoion_{name}: ", precision_score[i])
+            self.log(f"test_precison_{name}: ", precision_score[i])
             self.log(f"test_recall_{name}: ", recall_score[i])
             self.log(f"test_f1_{name}: ", f1_score[i])
 

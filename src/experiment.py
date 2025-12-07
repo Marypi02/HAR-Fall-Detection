@@ -36,7 +36,7 @@ def main(cfg: DictConfig):
 
             # --- Provo a congelare i pesi dell'encoder così che non vengano influenzati dal lstm
             for param in model.conv_ae.parameters():
-                param.requires_grad = False 
+                param.requires_grad = True 
             print("Encoder weights are NOW FROZEN.")
             model.conv_ae.eval()
 
