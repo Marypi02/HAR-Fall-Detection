@@ -34,7 +34,7 @@ class Net(lit.LightningModule):
         self.test_recall = MulticlassRecall(num_classes=cfg.num_classes, average=None)
         self.test_f1score = MulticlassF1Score(num_classes=cfg.num_classes, average=None)
 
-        self.conf_mat = MulticlassConfusionMatrix(num_classes=cfg.num_classes, average=None)
+        self.conf_mat = MulticlassConfusionMatrix(num_classes=cfg.num_classes)
 
         self.class_names = [
             "Walking", "Upstairs", "Downstairs", 
