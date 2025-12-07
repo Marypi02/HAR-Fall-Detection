@@ -1,0 +1,5 @@
+_target_: net.cnn.ConvAutoencoder #net.cnn.ConvBlock per CNN-LSTM
+in_channels: 9
+encoded_channels: ${net.width} # out_channels per CNN-LSTM
+kernel_size: 3
+pool_size: 2 # 1 per CNN-LSTM

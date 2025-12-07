@@ -1,0 +1,40 @@
+W1204 16:32:13.798000 27168 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\utilities\model_summary\model_summary.py:493: The total number of parameters detected may be inaccurate because the model contains an instance of `UninitializedParameter`. To get an accurate number, set `self.example_input_array` in your LightningModule.
+
+  | Name       | Type               | Params | Mode
+----------------------------------------------------------
+0 | conv_ae    | ConvAutoencoder    | 176 K  | train
+1 | features   | Sequential         | 0      | train
+2 | lstm_block | LSTMBlock          | 264 K  | train
+3 | unembed    | LazyLinear         | 0      | train
+4 | train_acc  | MulticlassAccuracy | 0      | train
+5 | val_acc    | MulticlassAccuracy | 0      | train
+6 | test_acc   | MulticlassAccuracy | 0      | train
+----------------------------------------------------------
+440 K     Trainable params
+0         Non-trainable params
+440 K     Total params
+1.761     Total estimated model params size (MB)
+24        Modules in train mode
+0         Modules in eval mode
+Epoch 25: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 46/46 [00:09<00:00,  4.98it/s, v_num=ect8, train_loss=0.0646, train_acc=0.984, val_acc=0.947]
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Testing...                                                                                                                                                                                              
+Metric val_acc improved. New best score: 0.770
+Metric val_acc improved by 0.050 >= min_delta = 0.001. New best score: 0.820
+Metric val_acc improved by 0.067 >= min_delta = 0.001. New best score: 0.887
+Metric val_acc improved by 0.002 >= min_delta = 0.001. New best score: 0.889
+Metric val_acc improved by 0.039 >= min_delta = 0.001. New best score: 0.928
+Metric val_acc improved by 0.022 >= min_delta = 0.001. New best score: 0.950
+Metric val_acc improved by 0.003 >= min_delta = 0.001. New best score: 0.953
+Metric val_acc improved by 0.006 >= min_delta = 0.001. New best score: 0.959
+Metric val_acc improved by 0.001 >= min_delta = 0.001. New best score: 0.961
+Monitored metric val_acc did not improve in the last 10 records. Best score: 0.961. Signaling Trainer to stop.
+Testing DataLoader 0: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 24/24 [00:01<00:00, 22.37it/s]
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_acc            0.8924329876899719
+        test_loss           0.4106757938861847
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

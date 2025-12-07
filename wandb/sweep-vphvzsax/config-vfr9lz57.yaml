@@ -1,0 +1,20 @@
+wandb_version: 1
+
+dataset.batch_size:
+  value: 64
+dataset.val_split:
+  value: 0.22219160507822316
+net.depth:
+  value: 1
+net.optimizer._target_:
+  value: torch.optim.SGD
+net.optimizer.lr:
+  value: 0.0007676040754898725
+net.rnn_block.hidden_size:
+  value: 64
+net.rnn_block.num_layers:
+  value: 1
+net.width:
+  value: 32
+trainer.max_epochs:
+  value: 275

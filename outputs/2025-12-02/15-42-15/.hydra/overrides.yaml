@@ -1,0 +1,9 @@
+- dataset.batch_size=16
+- dataset.val_split=0.10457126500950878
+- net.depth=1
+- net.optimizer._target_=torch.optim.Adam
+- net.optimizer.lr=0.0007986348541058185
+- net.rnn_block.hidden_size=256
+- net.rnn_block.num_layers=3
+- net.width=256
+- trainer.max_epochs=59

@@ -1,0 +1,9 @@
+- dataset.batch_size=64
+- dataset.val_split=0.18497385674059347
+- net.depth=1
+- net.optimizer._target_=torch.optim.SGD
+- net.optimizer.lr=0.0008323644741809538
+- net.rnn_block.hidden_size=64
+- net.rnn_block.num_layers=3
+- net.width=128
+- trainer.max_epochs=148

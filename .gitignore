@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Ignora i dati
+data/
+convAE_preTrain_outputs/
+wandb/
+FDS_PROJECT/
+outputs/

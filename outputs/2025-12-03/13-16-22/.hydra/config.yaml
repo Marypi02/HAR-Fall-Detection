@@ -1,0 +1,42 @@
+seed: 42
+net:
+  depth: 1
+  width: 128
+  num_classes: 6
+  block:
+    _target_: net.cnn.ConvBlock
+    in_channels: ${net.width}
+    out_channels: ${net.width}
+    kernel_size: 3
+    pool_size: 2
+  embed:
+    _target_: net.cnn.ConvAutoencoder
+    in_channels: 9
+    encoded_channels: ${net.width}
+    kernel_size: 3
+    pool_size: 2
+  unembed:
+    _target_: torch.nn.LazyLinear
+    out_features: 6
+  optimizer:
+    _target_: torch.optim.SGD
+    lr: 0.000614006124742842
+    weight_decay: 0.0
+  rnn_block:
+    _target_: net.rnn.LSTMBlock
+    input_size: 64
+    hidden_size: 256
+    num_layers: 1
+    dropout: 0.1
+    bidirectional: false
+trainer:
+  max_epochs: 232
+  log_every_n_steps: 10
+dataset:
+  data_dir: ./data
+  batch_size: 192
+  val_split: 0.27131341209799564
+wandb:
+  project: FDS_PROJECT
+  entity: catairu-sapienza-universit-di-roma
+  name: max_epochs{max_epochs}_bs{batch_size}_valsplit{val_split}_depth{depth}_width{width}_opt{optimizer._target_}_lr{optimizer.lr}_hsize{rnn_block.hidden_size}_nlayers{rnn_block.num_layers}

@@ -1,0 +1,90 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            x0zi3luigtfh8b0kxrjd0wxlggtxw1gb:
+                args:
+                    - dataset.batch_size=192
+                    - dataset.val_split=0.25413862732898407
+                    - net.depth=1
+                    - net.optimizer._target_=torch.optim.SGD
+                    - net.optimizer.lr=0.0006927264072228651
+                    - net.rnn_block.hidden_size=64
+                    - net.rnn_block.num_layers=2
+                    - net.width=32
+                    - trainer.max_epochs=189
+                codePath: src\preTraining.py
+                codePathLocal: src\preTraining.py
+                cpu_count: 4
+                cpu_count_logical: 8
+                disk:
+                    /:
+                        total: "509722226688"
+                        used: "411401588736"
+                email: mariapia.sorrentino2002@gmail.com
+                executable: C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Scripts\python.exe
+                git:
+                    commit: 415160a8a9e108ec321a882136a3fc28a083597a
+                    remote: https://github.com/Catairu/FDS_PROJECT.git
+                host: Mariapia
+                memory:
+                    total: "16952647680"
+                os: Windows-11-10.0.26100-SP0
+                program: C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\src\preTraining.py
+                python: CPython 3.12.0
+                root: .
+                startedAt: "2025-12-03T12:33:14.669874Z"
+                writerId: x0zi3luigtfh8b0kxrjd0wxlggtxw1gb
+        m:
+            - "1": trainer/global_step
+              "6":
+                - 3
+              "7": []
+            - "2": '*'
+              "5": 1
+              "6":
+                - 1
+              "7": []
+        python_version: 3.12.0
+        t:
+            "1":
+                - 1
+                - 41
+                - 50
+                - 106
+            "2":
+                - 1
+                - 41
+                - 50
+                - 106
+            "3":
+                - 7
+                - 13
+                - 14
+                - 66
+            "4": 3.12.0
+            "5": 0.23.0
+            "8":
+                - 3
+            "12": 0.23.0
+            "13": windows-amd64
+cfg:
+    value: '{''depth'': 1, ''width'': 32, ''num_classes'': 6, ''block'': {''_target_'': ''net.cnn.ConvBlock'', ''in_channels'': ''${net.width}'', ''out_channels'': ''${net.width}'', ''kernel_size'': 3, ''pool_size'': 2}, ''embed'': {''_target_'': ''net.cnn.ConvAutoencoder'', ''in_channels'': 9, ''encoded_channels'': ''${net.width}'', ''kernel_size'': 3, ''pool_size'': 2}, ''unembed'': {''_target_'': ''torch.nn.LazyLinear'', ''out_features'': 6}, ''optimizer'': {''_target_'': ''torch.optim.SGD'', ''lr'': 0.0006927264072228651, ''weight_decay'': 0.0}, ''rnn_block'': {''_target_'': ''net.rnn.LSTMBlock'', ''input_size'': 64, ''hidden_size'': 64, ''num_layers'': 2, ''dropout'': 0.1, ''bidirectional'': False}}'
+dataset.batch_size:
+    value: 192
+dataset.val_split:
+    value: 0.25413862732898407
+net.depth:
+    value: 1
+net.optimizer._target_:
+    value: torch.optim.SGD
+net.optimizer.lr:
+    value: 0.0006927264072228651
+net.rnn_block.hidden_size:
+    value: 64
+net.rnn_block.num_layers:
+    value: 2
+net.width:
+    value: 32
+trainer.max_epochs:
+    value: 189

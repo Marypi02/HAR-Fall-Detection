@@ -1,0 +1,20 @@
+wandb_version: 1
+
+dataset.batch_size:
+  value: 192
+dataset.val_split:
+  value: 0.19840236595516292
+net.depth:
+  value: 1
+net.optimizer._target_:
+  value: torch.optim.Adam
+net.optimizer.lr:
+  value: 0.00016042738047960725
+net.rnn_block.hidden_size:
+  value: 512
+net.rnn_block.num_layers:
+  value: 2
+net.width:
+  value: 64
+trainer.max_epochs:
+  value: 116

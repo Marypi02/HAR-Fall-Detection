@@ -1,0 +1,48 @@
+W1203 22:19:26.094000 40832 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\utilities\model_summary\model_summary.py:493: The total number of parameters detected may be inaccurate because the model contains an instance of `UninitializedParameter`. To get an accurate number, set `self.example_input_array` in your LightningModule.
+
+  | Name       | Type               | Params | Mode
+----------------------------------------------------------
+0 | conv_ae    | ConvAutoencoder    | 176 K  | train
+1 | features   | Sequential         | 0      | train
+2 | lstm_block | LSTMBlock          | 264 K  | train
+3 | unembed    | LazyLinear         | 0      | train
+4 | train_acc  | MulticlassAccuracy | 0      | train
+5 | val_acc    | MulticlassAccuracy | 0      | train
+6 | test_acc   | MulticlassAccuracy | 0      | train
+----------------------------------------------------------
+334 K     Trainable params
+105 K     Non-trainable params
+440 K     Total params
+1.761     Total estimated model params size (MB)
+24        Modules in train mode
+0         Modules in eval mode
+Epoch 24: 100%|██████████████████████████████████████████████████████████████████████| 46/46 [00:05<00:00,  8.82it/s, v_num=9xce, train_loss=0.150, train_acc=0.910, val_acc=0.937]
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Testing...                                                                                                                                                                         
+Metric val_acc improved. New best score: 0.527
+Metric val_acc improved by 0.116 >= min_delta = 0.001. New best score: 0.643
+Metric val_acc improved by 0.108 >= min_delta = 0.001. New best score: 0.751
+Metric val_acc improved by 0.028 >= min_delta = 0.001. New best score: 0.779
+Metric val_acc improved by 0.037 >= min_delta = 0.001. New best score: 0.816
+Metric val_acc improved by 0.032 >= min_delta = 0.001. New best score: 0.848
+Metric val_acc improved by 0.018 >= min_delta = 0.001. New best score: 0.867
+Metric val_acc improved by 0.018 >= min_delta = 0.001. New best score: 0.885
+Metric val_acc improved by 0.014 >= min_delta = 0.001. New best score: 0.899
+Metric val_acc improved by 0.007 >= min_delta = 0.001. New best score: 0.905
+Metric val_acc improved by 0.001 >= min_delta = 0.001. New best score: 0.907
+Metric val_acc improved by 0.007 >= min_delta = 0.001. New best score: 0.914
+Metric val_acc improved by 0.003 >= min_delta = 0.001. New best score: 0.918
+Metric val_acc improved by 0.001 >= min_delta = 0.001. New best score: 0.919
+Metric val_acc improved by 0.006 >= min_delta = 0.001. New best score: 0.925
+Metric val_acc improved by 0.010 >= min_delta = 0.001. New best score: 0.935
+Metric val_acc improved by 0.009 >= min_delta = 0.001. New best score: 0.944
+Monitored metric val_acc did not improve in the last 5 records. Best score: 0.944. Signaling Trainer to stop.
+Testing DataLoader 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 24/24 [00:01<00:00, 22.28it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_acc            0.8591788411140442
+        test_loss            0.421048104763031
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

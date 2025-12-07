@@ -1,0 +1,3 @@
+_target_: torch.optim.Adam
+lr: 0.0006  # 0.001 # dim del passo per raggiungere la soluzione ottimale
+weight_decay: 0.01 # L2 regularization method; penalizzazione dei pesi grandi

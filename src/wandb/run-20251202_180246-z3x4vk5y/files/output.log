@@ -1,0 +1,68 @@
+
+  | Name    | Type            | Params | Mode
+----------------------------------------------------
+0 | conv_ae | ConvAutoencoder | 3.0 K  | train
+----------------------------------------------------
+3.0 K     Trainable params
+0         Non-trainable params
+3.0 K     Total params
+0.012     Total estimated model params size (MB)
+8         Modules in train mode
+0         Modules in eval mode
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████| 184/184 [00:02<00:00, 79.61it/s, v_num=vk5y, ConvAE_loss=0.351]
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\src\preTraining.py", line 83, in <module>
+    main()
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\hydra\main.py", line 94, in decorated_main
+    _run_hydra(
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\hydra\_internal\utils.py", line 394, in _run_hydra
+    _run_app(
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\hydra\_internal\utils.py", line 457, in _run_app
+    run_and_report(
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\hydra\_internal\utils.py", line 223, in run_and_report
+    raise ex
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\hydra\_internal\utils.py", line 220, in run_and_report
+    return func()
+           ^^^^^^
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\hydra\_internal\utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+            ^^^^^^^^^^
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\hydra\_internal\hydra.py", line 132, in run
+    _ = ret.return_value
+        ^^^^^^^^^^^^^^^^
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\hydra\core\utils.py", line 260, in return_value
+    raise self._return_value
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\hydra\core\utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\src\preTraining.py", line 68, in main
+    trainer.fit(model, train_loader)
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\trainer\trainer.py", line 560, in fit
+    call._call_and_handle_interrupt(
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\trainer\call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\trainer\trainer.py", line 598, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\trainer\trainer.py", line 1011, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\trainer\trainer.py", line 1055, in _run_stage
+    self.fit_loop.run()
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\loops\fit_loop.py", line 217, in run
+    self.on_advance_end()
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\loops\fit_loop.py", line 473, in on_advance_end
+    call._call_callback_hooks(trainer, "on_train_epoch_end", monitoring_callbacks=True)
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\trainer\call.py", line 228, in _call_callback_hooks
+    fn(trainer, trainer.lightning_module, *args, **kwargs)
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\callbacks\early_stopping.py", line 190, in on_train_epoch_end
+    self._run_early_stopping_check(trainer)
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\callbacks\early_stopping.py", line 202, in _run_early_stopping_check
+    if trainer.fast_dev_run or not self._validate_condition_metric(  # disable early_stopping with fast_dev_run
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\callbacks\early_stopping.py", line 153, in _validate_condition_metric
+    raise RuntimeError(error_msg)
+RuntimeError: Early stopping conditioned on metric `convAE_loss` which is not available. Pass in or modify your `EarlyStopping` callback to use any of the following: `ConvAE_loss`

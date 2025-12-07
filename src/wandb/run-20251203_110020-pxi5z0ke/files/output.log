@@ -1,0 +1,25 @@
+
+  | Name    | Type            | Params | Mode
+----------------------------------------------------
+0 | conv_ae | ConvAutoencoder | 47.0 K | train
+----------------------------------------------------
+47.0 K    Trainable params
+0         Non-trainable params
+47.0 K    Total params
+0.188     Total estimated model params size (MB)
+17        Modules in train mode
+0         Modules in eval mode
+Epoch 46: 100%|███████████████████████████████████████████████████████████████████████████████████████████| 184/184 [00:03<00:00, 47.21it/s, v_num=z0ke, train_loss_convAE=0.503, val_loss_convAE=0.441]
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+                                                                                                                                                                                                        
+Metric val_loss_convAE improved. New best score: 0.443
+Metric val_loss_convAE improved by 0.001 >= min_delta = 0.0001. New best score: 0.442
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.442
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.442
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.441
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.441
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.441
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.441
+Monitored metric val_loss_convAE did not improve in the last 20 records. Best score: 0.441. Signaling Trainer to stop.
+Encoder weights saved for Transfer Learning at: convAE_preTrain_outputs/pretrain_encoder_weights.pth

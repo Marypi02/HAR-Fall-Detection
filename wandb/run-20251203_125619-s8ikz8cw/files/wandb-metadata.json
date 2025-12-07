@@ -1,0 +1,39 @@
+{
+  "os": "Windows-11-10.0.26100-SP0",
+  "python": "CPython 3.12.0",
+  "startedAt": "2025-12-03T11:56:19.246240Z",
+  "args": [
+    "dataset.batch_size=128",
+    "dataset.val_split=0.24634965339091697",
+    "net.depth=1",
+    "net.optimizer._target_=torch.optim.Adam",
+    "net.optimizer.lr=0.000666370169494408",
+    "net.rnn_block.hidden_size=64",
+    "net.rnn_block.num_layers=3",
+    "net.width=256",
+    "trainer.max_epochs=152"
+  ],
+  "program": "C:\\Users\\maria\\Desktop\\SAPIENZA\\LEZIONI\\FUNDATION OF DATA SCIENCE\\Human Activity Recognition\\FDS_PROJECT\\src\\preTraining.py",
+  "codePath": "src\\preTraining.py",
+  "codePathLocal": "src\\preTraining.py",
+  "git": {
+    "remote": "https://github.com/Catairu/FDS_PROJECT.git",
+    "commit": "415160a8a9e108ec321a882136a3fc28a083597a"
+  },
+  "email": "mariapia.sorrentino2002@gmail.com",
+  "root": ".",
+  "host": "Mariapia",
+  "executable": "C:\\Users\\maria\\Desktop\\SAPIENZA\\LEZIONI\\FUNDATION OF DATA SCIENCE\\Human Activity Recognition\\FDS_PROJECT\\.venv\\Scripts\\python.exe",
+  "cpu_count": 4,
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "509722226688",
+      "used": "411311968256"
+    }
+  },
+  "memory": {
+    "total": "16952647680"
+  },
+  "writerId": "ftkmh5uhtwsgf5pequ2dlm8l1rdfnp0s"
+}

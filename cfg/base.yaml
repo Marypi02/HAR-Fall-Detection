@@ -1,0 +1,25 @@
+defaults:
+  - _self_ # indica che questo file è la configurazione principale e quindi che nel caso di conflitti le impostazioni qui definite hanno la precedenza
+  - net: default # vai a cercare un file chiamato default.yaml nella cartella cfg/net
+
+seed: 42
+
+net:
+  depth: 1 # per CNN-LSTM, imposta depth: 3 ;   per ConvAE-LSTM, imposta depth: 1, questo perchè l'arch ConvAE standard utilizza un solo blocco Encoder  
+  width: [64, 128] # 256
+  num_classes: 6
+
+trainer:
+  max_epochs: 200 # 100
+  log_every_n_steps: 10
+
+dataset:
+  data_dir: "./data"
+  batch_size: 128
+  val_split: 0.2
+
+wandb :
+  project: "FDS_PROJECT"
+  entity: "catairu-sapienza-universit-di-roma"
+  name: "max_epochs{max_epochs}_bs{batch_size}_valsplit{val_split}_depth{depth}_width{width}_opt{optimizer._target_}_lr{optimizer.lr}_hsize{rnn_block.hidden_size}_nlayers{rnn_block.num_layers}"
+

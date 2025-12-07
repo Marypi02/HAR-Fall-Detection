@@ -1,0 +1,82 @@
+W1206 18:52:44.989000 38756 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\utilities\model_summary\model_summary.py:493: The total number of parameters detected may be inaccurate because the model contains an instance of `UninitializedParameter`. To get an accurate number, set `self.example_input_array` in your LightningModule.
+
+  | Name       | Type               | Params | Mode
+----------------------------------------------------------
+0 | conv_ae    | ConvAutoencoder    | 51.8 K | eval
+1 | features   | Sequential         | 0      | train
+2 | lstm_block | LSTMBlock          | 33.3 K | train
+3 | unembed    | LazyLinear         | 0      | train
+4 | train_acc  | MulticlassAccuracy | 0      | train
+5 | val_acc    | MulticlassAccuracy | 0      | train
+6 | test_acc   | MulticlassAccuracy | 0      | train
+----------------------------------------------------------
+33.3 K    Trainable params
+51.8 K    Non-trainable params
+85.1 K    Total params
+0.340     Total estimated model params size (MB)
+7         Modules in train mode
+18        Modules in eval mode
+Epoch 75: 100%|█████████████████████████████████████████████████████████████████████████████████████| 46/46 [00:28<00:00,  1.64it/s, v_num=i7b9, train_loss=0.535, train_acc=0.754, val_acc=0.816]
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\loops\fit_loop.py:527: Found 18 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+                                                                                                                                                                                                  
+Metric val_acc improved. New best score: 0.367
+Metric val_acc improved by 0.096 >= min_delta = 0.001. New best score: 0.463
+Metric val_acc improved by 0.016 >= min_delta = 0.001. New best score: 0.479
+Metric val_acc improved by 0.045 >= min_delta = 0.001. New best score: 0.524
+Metric val_acc improved by 0.081 >= min_delta = 0.001. New best score: 0.605
+Metric val_acc improved by 0.034 >= min_delta = 0.001. New best score: 0.639
+Metric val_acc improved by 0.013 >= min_delta = 0.001. New best score: 0.652
+Metric val_acc improved by 0.007 >= min_delta = 0.001. New best score: 0.659
+Metric val_acc improved by 0.006 >= min_delta = 0.001. New best score: 0.665
+Metric val_acc improved by 0.002 >= min_delta = 0.001. New best score: 0.667
+Metric val_acc improved by 0.002 >= min_delta = 0.001. New best score: 0.669
+Metric val_acc improved by 0.002 >= min_delta = 0.001. New best score: 0.671
+Metric val_acc improved by 0.007 >= min_delta = 0.001. New best score: 0.678
+Metric val_acc improved by 0.014 >= min_delta = 0.001. New best score: 0.692
+Metric val_acc improved by 0.003 >= min_delta = 0.001. New best score: 0.695
+Metric val_acc improved by 0.010 >= min_delta = 0.001. New best score: 0.705
+Metric val_acc improved by 0.004 >= min_delta = 0.001. New best score: 0.709
+Metric val_acc improved by 0.012 >= min_delta = 0.001. New best score: 0.720
+Metric val_acc improved by 0.012 >= min_delta = 0.001. New best score: 0.732
+Metric val_acc improved by 0.010 >= min_delta = 0.001. New best score: 0.741
+Metric val_acc improved by 0.007 >= min_delta = 0.001. New best score: 0.748
+Metric val_acc improved by 0.005 >= min_delta = 0.001. New best score: 0.753
+Metric val_acc improved by 0.003 >= min_delta = 0.001. New best score: 0.756
+Metric val_acc improved by 0.009 >= min_delta = 0.001. New best score: 0.765
+Metric val_acc improved by 0.018 >= min_delta = 0.001. New best score: 0.783
+Metric val_acc improved by 0.005 >= min_delta = 0.001. New best score: 0.788
+Metric val_acc improved by 0.015 >= min_delta = 0.001. New best score: 0.803
+Metric val_acc improved by 0.013 >= min_delta = 0.001. New best score: 0.816
+Metric val_acc improved by 0.002 >= min_delta = 0.001. New best score: 0.818
+Metric val_acc improved by 0.003 >= min_delta = 0.001. New best score: 0.821
+Metric val_acc improved by 0.007 >= min_delta = 0.001. New best score: 0.828
+Metric val_acc improved by 0.004 >= min_delta = 0.001. New best score: 0.832
+Metric val_acc improved by 0.004 >= min_delta = 0.001. New best score: 0.836
+Metric val_acc improved by 0.008 >= min_delta = 0.001. New best score: 0.844
+Metric val_acc improved by 0.003 >= min_delta = 0.001. New best score: 0.848
+Metric val_acc improved by 0.002 >= min_delta = 0.001. New best score: 0.850
+Metric val_acc improved by 0.005 >= min_delta = 0.001. New best score: 0.855
+Metric val_acc improved by 0.011 >= min_delta = 0.001. New best score: 0.866
+Metric val_acc improved by 0.005 >= min_delta = 0.001. New best score: 0.871
+Metric val_acc improved by 0.003 >= min_delta = 0.001. New best score: 0.875
+Metric val_acc improved by 0.003 >= min_delta = 0.001. New best score: 0.878
+Metric val_acc improved by 0.002 >= min_delta = 0.001. New best score: 0.880
+Metric val_acc improved by 0.001 >= min_delta = 0.001. New best score: 0.882
+Metric val_acc improved by 0.003 >= min_delta = 0.001. New best score: 0.884
+Metric val_acc improved by 0.004 >= min_delta = 0.001. New best score: 0.888
+Metric val_acc improved by 0.001 >= min_delta = 0.001. New best score: 0.890
+Metric val_acc improved by 0.003 >= min_delta = 0.001. New best score: 0.893
+Metric val_acc improved by 0.003 >= min_delta = 0.001. New best score: 0.897
+Monitored metric val_acc did not improve in the last 15 records. Best score: 0.897. Signaling Trainer to stop.
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\torch\nn\modules\rnn.py:123: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.3 and num_layers=1
+  warnings.warn(
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 24/24 [00:02<00:00,  9.01it/s]
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_acc            0.8394978046417236
+        test_loss           0.4353170394897461
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

@@ -1,0 +1,13 @@
+{"time":"2025-12-02T15:45:53.7093764+01:00","level":"INFO","msg":"stream: starting","core version":"0.23.0"}
+{"time":"2025-12-02T15:45:54.1600362+01:00","level":"INFO","msg":"stream: created new stream","id":"afp38ytv"}
+{"time":"2025-12-02T15:45:54.1600362+01:00","level":"INFO","msg":"handler: started","stream_id":"afp38ytv"}
+{"time":"2025-12-02T15:45:54.1690241+01:00","level":"INFO","msg":"stream: started","id":"afp38ytv"}
+{"time":"2025-12-02T15:45:54.1690241+01:00","level":"INFO","msg":"sender: started","stream_id":"afp38ytv"}
+{"time":"2025-12-02T15:45:54.1690241+01:00","level":"INFO","msg":"writer: started","stream_id":"afp38ytv"}
+{"time":"2025-12-02T15:47:10.0981574+01:00","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":2290}
+{"time":"2025-12-02T15:47:10.1365234+01:00","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":9}
+{"time":"2025-12-02T15:47:56.5948013+01:00","level":"INFO","msg":"stream: closing","id":"afp38ytv"}
+{"time":"2025-12-02T15:47:57.3867217+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-02T15:47:57.8829247+01:00","level":"INFO","msg":"handler: closed","stream_id":"afp38ytv"}
+{"time":"2025-12-02T15:47:57.8834294+01:00","level":"INFO","msg":"sender: closed","stream_id":"afp38ytv"}
+{"time":"2025-12-02T15:47:57.8834294+01:00","level":"INFO","msg":"stream: closed","id":"afp38ytv"}

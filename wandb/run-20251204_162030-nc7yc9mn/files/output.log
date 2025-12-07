@@ -1,0 +1,50 @@
+W1204 16:20:34.001000 35428 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\lightning\pytorch\utilities\model_summary\model_summary.py:493: The total number of parameters detected may be inaccurate because the model contains an instance of `UninitializedParameter`. To get an accurate number, set `self.example_input_array` in your LightningModule.
+
+  | Name       | Type               | Params | Mode
+----------------------------------------------------------
+0 | conv_ae    | ConvAutoencoder    | 176 K  | train
+1 | features   | Sequential         | 0      | train
+2 | lstm_block | LSTMBlock          | 264 K  | train
+3 | unembed    | LazyLinear         | 0      | train
+4 | train_acc  | MulticlassAccuracy | 0      | train
+5 | val_acc    | MulticlassAccuracy | 0      | train
+6 | test_acc   | MulticlassAccuracy | 0      | train
+----------------------------------------------------------
+440 K     Trainable params
+0         Non-trainable params
+440 K     Total params
+1.761     Total estimated model params size (MB)
+24        Modules in train mode
+0         Modules in eval mode
+Epoch 40: 100%|███████████████████████████████████████████████████████████████████████████████████████████| 46/46 [00:18<00:00,  2.54it/s, v_num=c9mn, train_loss=0.135, train_acc=0.926, val_acc=0.957]
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Testing...                                                                                                                                                                                              
+Metric val_acc improved. New best score: 0.366
+Metric val_acc improved by 0.288 >= min_delta = 0.001. New best score: 0.654
+Metric val_acc improved by 0.096 >= min_delta = 0.001. New best score: 0.750
+Metric val_acc improved by 0.052 >= min_delta = 0.001. New best score: 0.803
+Metric val_acc improved by 0.029 >= min_delta = 0.001. New best score: 0.831
+Metric val_acc improved by 0.035 >= min_delta = 0.001. New best score: 0.866
+Metric val_acc improved by 0.014 >= min_delta = 0.001. New best score: 0.880
+Metric val_acc improved by 0.013 >= min_delta = 0.001. New best score: 0.893
+Metric val_acc improved by 0.005 >= min_delta = 0.001. New best score: 0.898
+Metric val_acc improved by 0.016 >= min_delta = 0.001. New best score: 0.914
+Metric val_acc improved by 0.010 >= min_delta = 0.001. New best score: 0.924
+Metric val_acc improved by 0.012 >= min_delta = 0.001. New best score: 0.935
+Metric val_acc improved by 0.004 >= min_delta = 0.001. New best score: 0.939
+Metric val_acc improved by 0.005 >= min_delta = 0.001. New best score: 0.944
+Metric val_acc improved by 0.002 >= min_delta = 0.001. New best score: 0.946
+Metric val_acc improved by 0.004 >= min_delta = 0.001. New best score: 0.950
+Metric val_acc improved by 0.003 >= min_delta = 0.001. New best score: 0.953
+Metric val_acc improved by 0.004 >= min_delta = 0.001. New best score: 0.957
+Metric val_acc improved by 0.002 >= min_delta = 0.001. New best score: 0.959
+Monitored metric val_acc did not improve in the last 10 records. Best score: 0.959. Signaling Trainer to stop.
+Testing DataLoader 0: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 24/24 [00:01<00:00, 21.20it/s]
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_acc            0.8730912804603577
+        test_loss           0.3981555700302124
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

@@ -1,0 +1,81 @@
+
+  | Name    | Type            | Params | Mode
+----------------------------------------------------
+0 | conv_ae | ConvAutoencoder | 13.3 K | train
+----------------------------------------------------
+13.3 K    Trainable params
+0         Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+17        Modules in train mode
+0         Modules in eval mode
+Epoch 28: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 31/31 [00:03<00:00,  9.87it/s, v_num=g7sg, train_loss_convAE=0.445, val_loss_convAE=0.464]
+C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Lib\site-packages\torch\utils\data\dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+                                                                                                                                                                                                        
+Metric val_loss_convAE improved. New best score: 0.984
+Metric val_loss_convAE improved by 0.023 >= min_delta = 0.0001. New best score: 0.961
+Metric val_loss_convAE improved by 0.209 >= min_delta = 0.0001. New best score: 0.752
+Metric val_loss_convAE improved by 0.187 >= min_delta = 0.0001. New best score: 0.565
+Metric val_loss_convAE improved by 0.040 >= min_delta = 0.0001. New best score: 0.525
+Metric val_loss_convAE improved by 0.016 >= min_delta = 0.0001. New best score: 0.509
+Metric val_loss_convAE improved by 0.011 >= min_delta = 0.0001. New best score: 0.498
+Metric val_loss_convAE improved by 0.007 >= min_delta = 0.0001. New best score: 0.492
+Metric val_loss_convAE improved by 0.004 >= min_delta = 0.0001. New best score: 0.487
+Metric val_loss_convAE improved by 0.003 >= min_delta = 0.0001. New best score: 0.484
+Metric val_loss_convAE improved by 0.003 >= min_delta = 0.0001. New best score: 0.481
+Metric val_loss_convAE improved by 0.002 >= min_delta = 0.0001. New best score: 0.479
+Metric val_loss_convAE improved by 0.002 >= min_delta = 0.0001. New best score: 0.477
+Metric val_loss_convAE improved by 0.002 >= min_delta = 0.0001. New best score: 0.476
+Metric val_loss_convAE improved by 0.001 >= min_delta = 0.0001. New best score: 0.474
+Metric val_loss_convAE improved by 0.001 >= min_delta = 0.0001. New best score: 0.473
+Metric val_loss_convAE improved by 0.001 >= min_delta = 0.0001. New best score: 0.472
+Metric val_loss_convAE improved by 0.001 >= min_delta = 0.0001. New best score: 0.470
+Metric val_loss_convAE improved by 0.001 >= min_delta = 0.0001. New best score: 0.470
+Metric val_loss_convAE improved by 0.001 >= min_delta = 0.0001. New best score: 0.469
+Metric val_loss_convAE improved by 0.001 >= min_delta = 0.0001. New best score: 0.468
+Metric val_loss_convAE improved by 0.001 >= min_delta = 0.0001. New best score: 0.467
+Metric val_loss_convAE improved by 0.001 >= min_delta = 0.0001. New best score: 0.467
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.466
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.466
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.465
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.465
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.465
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.464
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.464
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.464
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.463
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.463
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.463
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.463
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.463
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.462
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.462
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.462
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.462
+Metric val_loss_convAE improved by 0.005 >= min_delta = 0.0001. New best score: 0.457
+Metric val_loss_convAE improved by 0.005 >= min_delta = 0.0001. New best score: 0.453
+Metric val_loss_convAE improved by 0.002 >= min_delta = 0.0001. New best score: 0.451
+Metric val_loss_convAE improved by 0.001 >= min_delta = 0.0001. New best score: 0.450
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.450
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.450
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.449
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.449
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.449
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.449
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.449
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.449
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.449
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.449
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.448
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.448
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.448
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.448
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.448
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.448
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.448
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.448
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.448
+Metric val_loss_convAE improved by 0.000 >= min_delta = 0.0001. New best score: 0.447
+`Trainer.fit` stopped: `max_epochs=116` reached.
+Encoder weights saved for Transfer Learning at: convAE_preTrain_outputs/pretrain_encoder_weights.pth

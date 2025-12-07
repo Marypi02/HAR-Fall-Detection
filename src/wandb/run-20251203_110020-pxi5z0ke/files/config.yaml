@@ -1,0 +1,61 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            2wyw5a3pf4itzsxq6672rad7dgdpi3dn:
+                codePath: src\preTraining.py
+                codePathLocal: preTraining.py
+                cpu_count: 4
+                cpu_count_logical: 8
+                disk:
+                    /:
+                        total: "509722226688"
+                        used: "410948276224"
+                email: mariapia.sorrentino2002@gmail.com
+                executable: C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\.venv\Scripts\python.exe
+                git:
+                    commit: 415160a8a9e108ec321a882136a3fc28a083597a
+                    remote: https://github.com/Catairu/FDS_PROJECT.git
+                host: Mariapia
+                memory:
+                    total: "16952647680"
+                os: Windows-11-10.0.26100-SP0
+                program: C:\Users\maria\Desktop\SAPIENZA\LEZIONI\FUNDATION OF DATA SCIENCE\Human Activity Recognition\FDS_PROJECT\src\preTraining.py
+                python: CPython 3.12.0
+                root: .
+                startedAt: "2025-12-03T10:00:20.213589Z"
+                writerId: 2wyw5a3pf4itzsxq6672rad7dgdpi3dn
+        m:
+            - "1": trainer/global_step
+              "6":
+                - 3
+              "7": []
+            - "2": '*'
+              "5": 1
+              "6":
+                - 1
+              "7": []
+        python_version: 3.12.0
+        t:
+            "1":
+                - 1
+                - 41
+                - 50
+                - 106
+            "2":
+                - 1
+                - 41
+                - 50
+                - 106
+            "3":
+                - 7
+                - 13
+                - 66
+            "4": 3.12.0
+            "5": 0.23.0
+            "8":
+                - 3
+            "12": 0.23.0
+            "13": windows-amd64
+cfg:
+    value: '{''depth'': 1, ''width'': 128, ''num_classes'': 6, ''block'': {''_target_'': ''net.cnn.ConvBlock'', ''in_channels'': ''${net.width}'', ''out_channels'': ''${net.width}'', ''kernel_size'': 3, ''pool_size'': 2}, ''embed'': {''_target_'': ''net.cnn.ConvAutoencoder'', ''in_channels'': 9, ''encoded_channels'': ''${net.width}'', ''kernel_size'': 3, ''pool_size'': 2}, ''unembed'': {''_target_'': ''torch.nn.LazyLinear'', ''out_features'': 6}, ''optimizer'': {''_target_'': ''torch.optim.Adam'', ''lr'': 0.005, ''weight_decay'': 0.0}, ''rnn_block'': {''_target_'': ''net.rnn.LSTMBlock'', ''input_size'': 64, ''hidden_size'': 128, ''num_layers'': 2, ''dropout'': 0.1, ''bidirectional'': False}}'
