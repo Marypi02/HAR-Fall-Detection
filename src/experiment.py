@@ -7,7 +7,7 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader, random_split
 import wandb
 from lightning.pytorch.loggers import WandbLogger
-from lightning.pytorch.callbacks import ModelCheckpoint
+from lightning.pytorch.callbacks import ModelCheckpoint, BaseFinetuning
 from dataset.loaders import load_har, load_wisdm
 
 import lightning.pytorch.callbacks as cb 
@@ -15,6 +15,28 @@ import lightning.pytorch.callbacks as cb
 from omegaconf import OmegaConf
 
 import os
+
+class unfreezeConvAE(BaseFinetuning):
+    def __init__(self, unfreeze_at_epoch: int = 5):
+        super().__init__()
+        self.unfreeze_at_epoch = unfreeze_at_epoch
+
+    def freeze_before_training(self, pl_module):
+        # Chiamata automaticamente prima del training
+        # congeliamo il convAE
+        print("[Callback] ConvAE weights are frozen initially.")
+        self.freeze(pl_module.conv_ae)
+
+    def finetune_function(self, pl_module, current_epoch, optimizer):
+        # chiamata ad ogni epoch
+        if current_epoch == self.unfreeze_at_epoch:
+            print(f"[Callback] Unfreezing ConvAE weights at epoch {current_epoch}!")
+
+            self.unfreeze_and_add_param_group(
+                modules=pl_module.conv_ae,
+                optimizer=optimizer,
+                # train_bn=True # se nel ConvBlock ho una BatchNorm1d
+            )
 
 @hydra.main(config_path="../cfg", config_name="base", version_base=None)
 def main(cfg: DictConfig):
@@ -35,10 +57,10 @@ def main(cfg: DictConfig):
             print("Encoder weights loaded successfully! Fine-Tuning start...")
 
             # --- Provo a congelare i pesi dell'encoder così che non vengano influenzati dal lstm
-            for param in model.conv_ae.parameters():
+            """for param in model.conv_ae.parameters():
                 param.requires_grad = False 
             print("Encoder weights are NOW FROZEN.")
-            model.conv_ae.eval()
+            model.conv_ae.eval()"""
 
         except Exception as e:
             print(f"Error loading weights dict: {e}")
@@ -54,6 +76,8 @@ def main(cfg: DictConfig):
         filename="best_HAR-{epoch:02d}-{val_acc:.4f}"
     )
 
+    unfreeze_weights = unfreezeConvAE(unfreeze_at_epoch=5)
+
     trainer = lit.Trainer(logger=wandb_logger, callbacks=[
         cb.EarlyStopping(
             monitor="val_acc",
@@ -62,7 +86,8 @@ def main(cfg: DictConfig):
             mode="max", 
             min_delta=1e-3
         ),
-        checkpoint
+        checkpoint,
+        unfreeze_weights
     ], **cfg.trainer)
 
     print('Training HAR model...')
