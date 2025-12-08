@@ -18,10 +18,12 @@ class LSTMBlock(nn.Module):
             input_size=input_size, 
             hidden_size=hidden_size, 
             num_layers=num_layers, 
-            dropout=dropout,
+            dropout=dropout if num_layers > 1 else 0.0, # il dropout ha efficacia solo con num_layer > 1 perchè viene eseguito tra layers
             batch_first=True, 
             bidirectional=bidirectional
         )
+
+        self.dropout_final_layer = nn.Dropout(p=dropout) # userà lo 0.3 nel file yaml
 
     def forward(self, x):
         out, (hn, cn) = self.lstm(x)        
@@ -32,5 +34,7 @@ class LSTMBlock(nn.Module):
             final_hn = torch.cat((hn[-2, :, :], hn[-1, :, :]), dim=1)
         else:
             final_hn = hn[-1, :, :]
+
+        final_hn = self.dropout_final_layer(final_hn)
             
         return final_hn

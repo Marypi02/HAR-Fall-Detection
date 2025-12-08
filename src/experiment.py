@@ -76,7 +76,7 @@ def main(cfg: DictConfig):
         filename="best_HAR-{epoch:02d}-{val_acc:.4f}"
     )
 
-    unfreeze_weights = unfreezeConvAE(unfreeze_at_epoch=5)
+    unfreeze_weights = unfreezeConvAE(unfreeze_at_epoch=10)
 
     trainer = lit.Trainer(logger=wandb_logger, callbacks=[
         cb.EarlyStopping(
