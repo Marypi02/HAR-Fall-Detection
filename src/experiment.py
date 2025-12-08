@@ -35,7 +35,7 @@ class unfreezeConvAE(BaseFinetuning):
             self.unfreeze_and_add_param_group(
                 modules=pl_module.conv_ae,
                 optimizer=optimizer,
-                # train_bn=True # se nel ConvBlock ho una BatchNorm1d
+                train_bn=True # se nel ConvBlock ho una BatchNorm1d
             )
 
 @hydra.main(config_path="../cfg", config_name="base", version_base=None)

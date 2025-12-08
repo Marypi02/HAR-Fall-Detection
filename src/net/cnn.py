@@ -4,6 +4,7 @@ class ConvBlock(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size=3, pool_size=2, **_):
         super(ConvBlock, self).__init__()
         self.conv = nn.Conv1d(in_channels, out_channels, kernel_size=kernel_size, stride=pool_size, padding=kernel_size // 2)
+        self.bn = nn.BatchNorm1d(out_channels)
         self.relu = nn.ReLU()
         # self.pool = nn.MaxPool1d(kernel_size=pool_size, stride=pool_size)
 
@@ -14,7 +15,7 @@ class ConvBlock(nn.Module):
         return x"""
 
         # return self.pool(self.relu(self.conv(x)))
-        return self.relu(self.conv(x))
+        return self.relu(self.bn(self.conv(x)))
 
 class DeconvBlock(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size=2, stride=2, **_):
