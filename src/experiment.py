@@ -24,8 +24,9 @@ class unfreezeConvAE(BaseFinetuning):
     def freeze_before_training(self, pl_module):
         # Chiamata automaticamente prima del training
         # congeliamo il convAE
-        print("[Callback] ConvAE weights are frozen initially.")
-        self.freeze(pl_module.conv_ae)
+        """print("[Callback] ConvAE weights are frozen initially.")
+        self.freeze(pl_module.conv_ae)"""
+        pass
 
     def finetune_function(self, pl_module, current_epoch, optimizer):
         # chiamata ad ogni epoch
@@ -60,10 +61,10 @@ def main(cfg: DictConfig):
             print("Encoder weights loaded successfully! Fine-Tuning start...")
 
             # --- Provo a congelare i pesi dell'encoder così che non vengano influenzati dal lstm
-            """for param in model.conv_ae.parameters():
+            for param in model.conv_ae.parameters():
                 param.requires_grad = False 
             print("Encoder weights are NOW FROZEN.")
-            model.conv_ae.eval()"""
+            # model.conv_ae.eval()
 
         except Exception as e:
             print(f"Error loading weights dict: {e}")
