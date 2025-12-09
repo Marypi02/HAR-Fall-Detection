@@ -37,7 +37,7 @@ class unfreezeConvAE(BaseFinetuning):
             self.unfreeze_and_add_param_group(
                 modules=pl_module.conv_ae,
                 optimizer=optimizer,
-                initial_lr = current_lr // 10,
+                lr = current_lr // 10,
                 train_bn=True # se nel ConvBlock ho una BatchNorm1d
             )
 
