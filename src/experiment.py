@@ -32,9 +32,12 @@ class unfreezeConvAE(BaseFinetuning):
         if current_epoch == self.unfreeze_at_epoch:
             print(f"[Callback] Unfreezing ConvAE weights at epoch {current_epoch}!")
 
+            current_lr = optimizer.param_groups[0]['lr']
+
             self.unfreeze_and_add_param_group(
                 modules=pl_module.conv_ae,
                 optimizer=optimizer,
+                start_lr = current_lr // 10,
                 train_bn=True # se nel ConvBlock ho una BatchNorm1d
             )
 
