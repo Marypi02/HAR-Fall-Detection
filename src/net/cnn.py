@@ -15,7 +15,7 @@ class ConvBlock(nn.Module):
         return x"""
 
         # return self.pool(self.relu(self.conv(x)))
-        return self.relu(self.bn(self.conv(x)))
+        return self.pool(self.relu(self.bn(self.conv(x))))
 
 class DeconvBlock(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size=2, stride=2, **_):
