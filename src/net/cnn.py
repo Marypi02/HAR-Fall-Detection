@@ -6,7 +6,7 @@ class ConvBlock(nn.Module):
         self.conv = nn.Conv1d(in_channels, out_channels, kernel_size=kernel_size, stride=pool_size, padding=kernel_size // 2)
         self.bn = nn.BatchNorm1d(out_channels)
         self.relu = nn.ReLU()
-        # self.pool = nn.MaxPool1d(kernel_size=pool_size, stride=pool_size)
+        self.pool = nn.MaxPool1d(kernel_size=pool_size, stride=pool_size)
 
     def forward(self, x):
         """x = self.conv(x)
