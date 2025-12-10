@@ -23,7 +23,7 @@ class LSTMBlock(nn.Module):
             bidirectional=bidirectional
         )
 
-        self.dropout_final_layer = nn.Dropout(p=dropout) # userà lo 0.3 nel file yaml
+        self.dropout_final_layer = nn.Dropout(p=dropout) # userà lo 0.1 nel file yaml
 
     def forward(self, x):
         out, (hn, cn) = self.lstm(x)        
