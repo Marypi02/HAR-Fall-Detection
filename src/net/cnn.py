@@ -20,7 +20,7 @@ class ConvBlock(nn.Module):
         self.pool = nn.MaxPool1d(kernel_size=pool_size, stride=pool_size)
 
     def forward(self, x):
-        print(f"[Conv output]: {x.shape}")
+        # print(f"[Conv output]: {x.shape}")
         return self.pool(self.activation(self.bn(self.conv(x))))
 
 class DeconvBlock(nn.Module):
@@ -38,7 +38,7 @@ class DeconvBlock(nn.Module):
         self.activation = nn.LeakyReLU(negative_slope=0.01, inplace=True)
 
     def forward(self, x):
-        print(f"Deconv ouput: {x.shape}")
+        # print(f"Deconv ouput: {x.shape}")
         return self.activation(self.bn(self.deconv(x)))
     
 class ConvAutoencoder(nn.Module):
@@ -102,24 +102,24 @@ class ConvAutoencoder(nn.Module):
 
     def forward(self, x, is_har=True):
 
-        print(f"\n--- FORWARD START ---")
-        print(f"Input shape: {x.shape}")
+        """print(f"\n--- FORWARD START ---")
+        print(f"Input shape: {x.shape}")"""
         
         # 1. Comprimi
         latent = self.encoder(x)
-        print(f"Latent shape: {latent.shape}")
+        # print(f"Latent shape: {latent.shape}")
 
         if is_har:
             # Caso LSTM: viene restituito l'output del bottlneck (batch,128,32)
-            print("--- MODE: HAR (Return Latent) ---")
+            # print("--- MODE: HAR (Return Latent) ---")
             return latent
         else:
             # Caso Pre-Training: per calcolare l'errore di ricostruzione, i canali vengono schiacciati a 9
-            print("--- MODE: Pre-Training ---")
+            # print("--- MODE: Pre-Training ---")
 
             feautures = self.decoder(latent)
             reconstructed = self.reconstructed_features(feautures)
-            print(f"Reconstructed output shape: {reconstructed.shape}")
+            # print(f"Reconstructed output shape: {reconstructed.shape}")
 
             return reconstructed
         
