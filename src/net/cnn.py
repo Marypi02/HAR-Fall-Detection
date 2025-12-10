@@ -1,41 +1,5 @@
 import torch.nn as nn
 
-class ConvBlock(nn.Module):
-    def __init__(self, in_channels, out_channels, kernel_size=3, pool_size=2, **_):
-        super(ConvBlock, self).__init__()
-        self.conv = nn.Conv1d(in_channels, out_channels, kernel_size=kernel_size, padding=kernel_size // 2)
-        self.bn = nn.BatchNorm1d(out_channels)
-        self.relu = nn.ReLU()
-        self.pool = nn.MaxPool1d(kernel_size=pool_size, stride=pool_size)
-
-    def forward(self, x):
-        """x = self.conv(x)
-        x = self.relu(x)
-        x = self.pool(x)
-        return x"""
-
-        # return self.pool(self.relu(self.conv(x)))
-        return self.pool(self.relu(self.bn(self.conv(x))))
-
-class DeconvBlock(nn.Module):
-    def __init__(self, in_channels, out_channels, kernel_size=2, stride=2, **_):
-        super(DeconvBlock, self).__init__()
-        self.deconv = nn.ConvTranspose1d(
-            in_channels, 
-            out_channels, 
-            kernel_size=kernel_size, 
-            stride=stride,
-            padding=0
-        )
-        self.relu = nn.ReLU()
-
-    def forward(self, x):
-        """x = self.deconv(x)
-        x = self.relu(x)
-        return x"""
-
-        return self.relu(self.deconv(x))
-
 class FeedForwardBlock(nn.Module):
     def __init__(self, input_dim, output_dim):
         super(FeedForwardBlock, self).__init__()
@@ -46,6 +10,36 @@ class FeedForwardBlock(nn.Module):
         x = self.fc(x)
         x = self.relu(x)
         return x
+
+class ConvBlock(nn.Module):
+    def __init__(self, in_channels, out_channels, kernel_size=3, pool_size=2, **_):
+        super(ConvBlock, self).__init__()
+        self.conv = nn.Conv1d(in_channels, out_channels, kernel_size=kernel_size, padding=kernel_size // 2, bias = False)
+        self.bn = nn.BatchNorm1d(out_channels)
+        self.activation = nn.LeakyReLU(negative_slope=0.01, inplace=True)
+        self.pool = nn.MaxPool1d(kernel_size=pool_size, stride=pool_size)
+
+    def forward(self, x):
+        print(f"[Conv output]: {x.shape}")
+        return self.pool(self.activation(self.bn(self.conv(x))))
+
+class DeconvBlock(nn.Module):
+    def __init__(self, in_channels, out_channels, kernel_size=2, stride=2, **_):
+        super(DeconvBlock, self).__init__()
+        self.deconv = nn.ConvTranspose1d(
+            in_channels, 
+            out_channels, 
+            kernel_size=kernel_size, 
+            stride=stride,
+            padding=0,
+            bias=False
+        )
+        self.bn = nn.BatchNorm1d(out_channels)
+        self.activation = nn.LeakyReLU(negative_slope=0.01, inplace=True)
+
+    def forward(self, x):
+        print(f"Deconv ouput: {x.shape}")
+        return self.activation(self.bn(self.deconv(x)))
     
 class ConvAutoencoder(nn.Module):
     """
@@ -55,44 +49,6 @@ class ConvAutoencoder(nn.Module):
     """
     def __init__(self, in_channels, encoded_channels, kernel_size=3, pool_size=2):
         super(ConvAutoencoder, self).__init__()
-
-        """max_compression = encoded_channels // 2 # Usiamo la metà della larghezza
-
-        "--- ENCODER ---"
-        self.encoder = nn.Sequential(
-            # LAYER 1: in_channels(9) --> out_channels(256)
-            ConvBlock(
-                in_channels=in_channels,
-                out_channels=encoded_channels,
-                kernel_size=kernel_size,
-                pool_size=pool_size
-            ),
-            # LAYER 2: in_channels(256) --> out_channels(128), in 64 canali mi deve compremire le 128 feature ottenute dal primo layer
-            ConvBlock(
-                in_channels=encoded_channels,
-                out_channels=max_compression,
-                kernel_size=kernel_size,
-                pool_size=pool_size
-            )
-        )
-
-        "--- DECODER ---"
-        # LAYER 3: in_channels(128) --> out_channels(256)
-        self.decoder = nn.Sequential(
-            DeconvBlock(
-                in_channels=max_compression,
-                out_channels=encoded_channels,
-                kernel_size=pool_size, # stessa dimensione usata in fase di encoding, per eseguire un upsampling e ripristinare la dimensione di spazio/tempo persa nel pooling
-                stride=pool_size
-            ),
-            # LAYER 4: in_channels(256) --> out_channels(9)
-            DeconvBlock(
-                in_channels=encoded_channels,
-                out_channels=in_channels,
-                kernel_size=pool_size, # stessa dimensione usata in fase di encoding, per eseguire un upsampling e ripristinare la dimensione di spazio/tempo persa nel pooling
-                stride=pool_size
-            )
-        )"""
 
         if isinstance(encoded_channels, int):
             encoded_channels = [encoded_channels]
@@ -113,7 +69,7 @@ class ConvAutoencoder(nn.Module):
             current_l = depth
 
         self.encoder = nn.Sequential(*encoder_layers)
-        self.latent_dim = current_l # depth finale
+        self.latent_dim = current_l # depth finale ---> bottleneck
 
         # --- DECODER progressivo ---
         decoder_layers = []
@@ -137,7 +93,7 @@ class ConvAutoencoder(nn.Module):
             )
             current_l = depth
         
-        self.decoder_for_lstm = nn.Sequential(*decoder_layers)
+        self.decoder = nn.Sequential(*decoder_layers)
         self.features_dim = current_l # questa è il valore delle features che andrà al lstm, da usare per la ricostruzione
 
         # --- RICOSTRUZIONE DELL'ULTIMO LAYER necessario per il pre-training e il calcolo della recostrution loss
@@ -145,17 +101,25 @@ class ConvAutoencoder(nn.Module):
         self.reconstructed_features = nn.Conv1d(self.features_dim, in_channels, kernel_size=1)
 
     def forward(self, x, is_har=True):
+
+        print(f"\n--- FORWARD START ---")
+        print(f"Input shape: {x.shape}")
         
         # 1. Comprimi
         latent = self.encoder(x)
-
-        # 2. Espandi il tempo (deocoder_for_lstm)
-        feautures = self.decoder_for_lstm(latent)
+        print(f"Latent shape: {latent.shape}")
 
         if is_har:
-            # Caso LSTM: vengono restituite le feature 'ricche' del penultimo layer del decoder (64 canali, 128 timestep)
-            return feautures
+            # Caso LSTM: viene restituito l'output del bottlneck (batch,128,32)
+            print("--- MODE: HAR (Return Latent) ---")
+            return latent
         else:
             # Caso Pre-Training: per calcolare l'errore di ricostruzione, i canali vengono schiacciati a 9
-            return self.reconstructed_features(feautures)
+            print("--- MODE: Pre-Training ---")
+
+            feautures = self.decoder(latent)
+            reconstructed = self.reconstructed_features(feautures)
+            print(f"Reconstructed output shape: {reconstructed.shape}")
+
+            return reconstructed
         

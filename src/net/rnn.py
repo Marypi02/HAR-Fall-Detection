@@ -29,7 +29,6 @@ class LSTMBlock(nn.Module):
         out, (hn, cn) = self.lstm(x)        
         
         if self.bidirectional:
-            num_directions = 2
             
             final_hn = torch.cat((hn[-2, :, :], hn[-1, :, :]), dim=1)
         else:

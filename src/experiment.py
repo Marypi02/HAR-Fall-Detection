@@ -85,7 +85,7 @@ def main(cfg: DictConfig):
     trainer = lit.Trainer(logger=wandb_logger, callbacks=[
         cb.EarlyStopping(
             monitor="val_acc",
-            patience=15,
+            patience=40, # 15
             verbose=True,
             mode="max", 
             min_delta=1e-3

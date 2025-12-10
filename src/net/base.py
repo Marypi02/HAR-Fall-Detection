@@ -43,11 +43,11 @@ class Net(lit.LightningModule):
 
     # --- forward for ConvAE + LSTM
     def forward(self, x):
-        # 1- ENCODER + DECODER (penultimo layer con le features 'ricche')
+        # 1- ENCODER --> output del bottleneck
         x = self.conv_ae(x, is_har = True)
 
         # 2- FLATTEN
-        # Da (batch, channels, seq_len_ridotta) a (batch, seq_len_ridotta, features/channels), quindi per esempio da [batch, 64, 128] --> [batch, 128,64]
+        # Da (batch, channels, seq_len_ridotta) a (batch, seq_len_ridotta, features/channels), quindi per esempio da [batch, 128, 32] --> [batch, 32, 128]
         x = x.permute(0, 2, 1) # cambio dimensione per LSTM [batch, seq_len, features]
         
         # 3- LSTM
