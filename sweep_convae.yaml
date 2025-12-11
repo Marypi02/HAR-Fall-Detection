@@ -23,10 +23,15 @@ parameters:
     max: 0.30
 
   # --- OPTIMIZER ---
+  net.optimizer._target_:
+      values:
+        - torch.optim.Adam
+        - torch.optim.AdamW
+
   net.optimizer.lr:
-    distribution: log_uniform_values
-    min: 0.0001
-    max: 0.005
+      distribution: log_uniform_values
+      min: 0.0001
+      max: 0.005
 
   net.optimizer.weight_decay:
     distribution: log_uniform_values
