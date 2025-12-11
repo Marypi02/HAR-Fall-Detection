@@ -13,12 +13,12 @@ from hydra.utils import instantiate
 from net.cnn import ConvBlock, FeedForwardBlock, ConvAutoencoder
 
 class Net(lit.LightningModule):
-    def __init__(self,cfg
-                ):  
+    def __init__(self,cfg, max_epochs=100):  
         super(Net, self).__init__()
         self.save_hyperparameters()
         self.depth = cfg.depth 
         self.cfg = cfg
+        self.max_epochs = max_epochs
 
         # self.embed = instantiate(cfg.embed) # convoluzione deconvoluzione , loss in due parti regressione e classificazione 
         self.conv_ae = instantiate(cfg.embed) # rinomino la variabile per distinguere il caso
@@ -131,7 +131,7 @@ class Net(lit.LightningModule):
 
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
             optimizer,
-            T_max=self.cfg.trainer.max_epochs, # Deve arrivare a zero alla fine delle epoche
+            T_max=self.max_epochs, # Deve arrivare a zero alla fine delle epoche
             eta_min=1e-6 # Learning rate minimo finale
         )
 

@@ -46,7 +46,7 @@ import os
 def main(cfg: DictConfig):
     lit.seed_everything(cfg.seed) 
     wandb_logger = WandbLogger(**cfg.wandb) # wandb login 
-    model = Net(cfg.net)
+    model = Net(cfg.net, max_epoch=cfg.trainer.max_epochs)
 
     # --- Caricamento dei pesi ottenuti durante la fase di pre-training
     """convAE_weights_path = "convAE_preTrain_outputs/convAE_weights.pth"
