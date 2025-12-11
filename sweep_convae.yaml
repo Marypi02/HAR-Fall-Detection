@@ -1,0 +1,54 @@
+program: src/experiment.py
+project: FDS_PROJECT
+entity: catairu-sapienza-universit-di-roma
+method: bayes
+
+metric:
+  name: test_acc
+  goal: maximize
+
+parameters:
+  # --- TRAINER ---
+  trainer.max_epochs:
+    distribution: int_uniform
+    min: 40
+    max: 100 # 200
+
+  dataset.batch_size:
+    values: [64, 128] # 16, 32
+
+  dataset.val_split:
+    distribution: uniform 
+    min: 0.15
+    max: 0.30
+
+  # --- OPTIMIZER ---
+  net.optimizer.lr:
+    distribution: log_uniform_values
+    min: 0.0001
+    max: 0.005
+
+  net.optimizer.weight_decay:
+    distribution: log_uniform_values
+    min: 0.00001
+    max: 0.01
+
+  # --- LSTM ---
+  net.rnn_block.hidden_size:
+    values: [64, 128]
+
+  net.rnn_block.dropout:
+    distribution: uniform
+    min: 0.1
+    max: 0.6
+
+  net.rnn_block.bidirectional:
+    values: [True, False]
+
+
+command:
+  - uv
+  - run
+  - python
+  - src/experiment.py
+  - ${args_no_hyphens}
