@@ -16,7 +16,7 @@ from omegaconf import OmegaConf
 
 import os
 
-class unfreezeConvAE(BaseFinetuning):
+"""class unfreezeConvAE(BaseFinetuning):
     def __init__(self, unfreeze_at_epoch: int = 5):
         super().__init__()
         self.unfreeze_at_epoch = unfreeze_at_epoch
@@ -40,7 +40,7 @@ class unfreezeConvAE(BaseFinetuning):
                 optimizer=optimizer,
                 lr = current_lr // 10,
                 train_bn=True # se nel ConvBlock ho una BatchNorm1d
-            )
+            )"""
 
 @hydra.main(config_path="../cfg", config_name="base", version_base=None)
 def main(cfg: DictConfig):
@@ -49,7 +49,7 @@ def main(cfg: DictConfig):
     model = Net(cfg.net)
 
     # --- Caricamento dei pesi ottenuti durante la fase di pre-training
-    convAE_weights_path = "convAE_preTrain_outputs/convAE_weights.pth"
+    """convAE_weights_path = "convAE_preTrain_outputs/convAE_weights.pth"
 
     if os.path.exists(convAE_weights_path):
         print("Loading ConvAE weights for HAR Fine-Tuning...")
@@ -69,7 +69,7 @@ def main(cfg: DictConfig):
         except Exception as e:
             print(f"Error loading weights dict: {e}")
     else:
-        print("Pre-Trained weights not found!")
+        print("Pre-Trained weights not found!")"""
 
     train_loader, val_loader, test_loader = load_har(**cfg.dataset)
 
@@ -80,7 +80,7 @@ def main(cfg: DictConfig):
         filename="best_HAR-{epoch:02d}-{val_acc:.4f}"
     )
 
-    unfreeze_weights = unfreezeConvAE(unfreeze_at_epoch=15)
+    # unfreeze_weights = unfreezeConvAE(unfreeze_at_epoch=15)
 
     trainer = lit.Trainer(logger=wandb_logger, callbacks=[
         cb.EarlyStopping(
@@ -90,8 +90,8 @@ def main(cfg: DictConfig):
             mode="max", 
             min_delta=1e-3
         ),
-        checkpoint,
-        unfreeze_weights
+        checkpoint
+        # unfreeze_weights
     ], **cfg.trainer)
 
     print('Training HAR model...')
