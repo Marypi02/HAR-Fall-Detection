@@ -1,0 +1,6 @@
+_target_: torch.nn.ClassifierBlock
+input_size: ${net.rnn_block.hidden_size}
+hidden_size: 64
+out_features: 6
+dropout: 0.3
+bidirectional: ${net.rnn_block.bidirectional}
