@@ -61,7 +61,7 @@ class Net(lit.LightningModule):
     def training_step(self, batch, batch_idx):
         x, y = batch
         y_hat = self(x)
-        loss = F.cross_entropy(y_hat, y)
+        loss = F.cross_entropy(y_hat, y, label_smoothing=0.1) # label_smoothing dice "Non essere sicuro al 100%"
         self.log('train_loss', loss, prog_bar=True)
         self.log('train_acc', self.train_acc(y_hat, y), prog_bar=True)
         return loss
@@ -122,11 +122,17 @@ class Net(lit.LightningModule):
         optimizer = instantiate(self.cfg.optimizer, self.parameters())
 
         # Lr scheduler per ridurre lr se la val_loss si blocca
-        scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+        """scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
             optimizer=optimizer,
             mode="max",
             factor=0.5, 
             patience=10
+        )"""
+
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=self.cfg.trainer.max_epochs, # Deve arrivare a zero alla fine delle epoche
+            eta_min=1e-6 # Learning rate minimo finale
         )
 
         return {
