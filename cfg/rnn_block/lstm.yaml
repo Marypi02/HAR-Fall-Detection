@@ -2,5 +2,5 @@ _target_: net.rnn.LSTMBlock
 input_size: 128
 hidden_size: 64 # 128
 num_layers: 1 # 2
-dropout: 0.1 # 0.1 # % di neuroni disattivati causalmente per ogni batch per evitare la co-dipendenza e forzare la ridondanza nell'apprendimento
+dropout: 0.3 # 0.1 # % di neuroni disattivati causalmente per ogni batch per evitare la co-dipendenza e forzare la ridondanza nell'apprendimento
 bidirectional: False
