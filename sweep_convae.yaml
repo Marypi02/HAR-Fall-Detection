@@ -11,7 +11,7 @@ parameters:
   # --- TRAINER ---
   trainer.max_epochs:
     distribution: int_uniform
-    min: 40
+    min: 50
     max: 100 # 200
 
   dataset.batch_size:
