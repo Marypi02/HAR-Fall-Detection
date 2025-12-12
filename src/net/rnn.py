@@ -26,7 +26,7 @@ class LSTMBlock(nn.Module):
         self.dropout_final_layer = nn.Dropout(p=dropout) # userà lo 0.1 nel file yaml
 
     def forward(self, x):
-        out, (hn, cn) = self.lstm(x)        
+        """out, (hn, cn) = self.lstm(x)        
         
         if self.bidirectional:
             
@@ -36,4 +36,21 @@ class LSTMBlock(nn.Module):
 
         final_hn = self.dropout_final_layer(final_hn)
             
-        return final_hn
+        return final_hn"""
+
+        # 1. Passaggio nell'LSTM
+        # out shape: [batch_size, seq_len, hidden_size * num_directions]
+        # Esempio: [64, 32, 128] (se hidden=64 e bidirectional=True)
+        out, (hn, cn) = self.lstm(x)        
+        
+        # 2. MEAN POOLING (La Modifica)
+        # Invece di impazzire con hn e if/else, facciamo la media su tutto il tempo (dim=1).
+        # Questo riassume "l'energia media" di tutta la finestra temporale.
+        # Shape risultante: [batch_size, hidden_size * num_directions] -> [64, 128]
+        final_vector = torch.mean(out, dim=1)
+        
+        # 3. Dropout
+        final_vector = self.dropout_final_layer(final_vector)
+            
+        return final_vector
+    
