@@ -60,7 +60,7 @@ class Net(lit.LightningModule):
     def training_step(self, batch, batch_idx):
         x, y = batch
         y_hat = self(x)
-        loss = F.cross_entropy(y_hat, y, label_smoothing=0.1) # label_smoothing dice "Non essere sicuro al 100%"
+        loss = F.cross_entropy(y_hat, y) # label_smoothing dice "Non essere sicuro al 100%"
         self.log('train_loss', loss, prog_bar=True)
         self.log('train_acc', self.train_acc(y_hat, y), prog_bar=True)
         return loss
