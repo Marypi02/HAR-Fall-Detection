@@ -80,7 +80,8 @@ def main(cfg: DictConfig):
         filename="best_HAR-{epoch:02d}-{val_acc:.4f}"
     )
 
-    unfreeze_weights = unfreezeConvAE(unfreeze_at_epoch=15)
+    unfreeze_epoch_val = cfg.finetuning.unfreeze_epoch
+    unfreeze_weights = unfreezeConvAE(unfreeze_at_epoch=unfreeze_epoch_val)
 
     trainer = lit.Trainer(logger=wandb_logger, callbacks=[
         cb.EarlyStopping(
@@ -90,8 +91,8 @@ def main(cfg: DictConfig):
             mode="max", 
             min_delta=1e-3
         ),
-        checkpoint
-        # unfreeze_weights
+        checkpoint,
+        unfreeze_weights
     ], **cfg.trainer)
 
     print('Training HAR model...')

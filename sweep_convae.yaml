@@ -50,6 +50,10 @@ parameters:
   net.rnn_block.bidirectional:
     values: [True, False]
 
+  # --- FINE TUNING ---
+  finetuning.unfreeze_epoch:
+    values: [0, 5, 10, 15,20]
+
 
 command:
   - uv

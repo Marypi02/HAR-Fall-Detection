@@ -4,6 +4,9 @@ defaults:
 
 seed: 42
 
+finetuning:
+  unfreeze_epoch: 15
+
 net:
   depth: 1 # per CNN-LSTM, imposta depth: 3 ;   per ConvAE-LSTM, imposta depth: 1, questo perchè l'arch ConvAE standard utilizza un solo blocco Encoder  
   width: [64, 128] # 256
