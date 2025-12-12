@@ -118,7 +118,7 @@ class Net(lit.LightningModule):
         
 
     def configure_optimizers(self):
-        optimizer = instantiate(self.cfg.optimizer, self.parameters())
+        """optimizer = instantiate(self.cfg.optimizer, self.parameters())
 
         # Lr scheduler per ridurre lr se la val_loss si blocca
         scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
@@ -136,5 +136,16 @@ class Net(lit.LightningModule):
                 "interval": "epoch",
                 "frequency": 1,
             },
-        }
+        }"""
+
+        # prendiamo tutti i parametri
+        all_params = self.parameters()
+
+        # manteniamo solo quelli con requires_grad==True, ossai LSTM + Classificazione
+        active_params = filter(lambda p: p.requires_grad, all_params)
+
+        # passa all'opt sono quelli attivi, poichè prima dello scongelamento, per l'opt il convae con esiste ancora
+        optimizer = instantiate(self.cfg.optimizer, active_params)
+
+        return optimizer
     
